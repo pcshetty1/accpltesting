@@ -1,0 +1,902 @@
+/* ========================================
+   AACPL SERVICE PAGE HERO
+   Matches the Contact Page Hero design
+======================================== */
+
+:root {
+  --navy: #122850;
+  --red: #e03038;
+  --white: #ffffff;
+}
+
+/* Hero Section */
+
+.services-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 50vh;
+  padding: clamp(40px, 7vw, 100px);
+  overflow: hidden;
+  background-color: var(--navy);
+
+  /* Automotive manufacturing and industrial background */
+  background-image: url("https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=2000&q=85");
+  background-size: cover;
+  background-position: center 50%;
+  background-repeat: no-repeat;
+}
+
+/* Navy Overlay for Text Readability */
+
+.services-hero__overlay {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 24, 52, 0.92) 0%,
+    rgba(18, 40, 80, 0.76) 48%,
+    rgba(18, 40, 80, 0.38) 100%
+  );
+}
+
+/* Hero Content */
+
+.services-hero__content {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  color: var(--white);
+  animation: servicesHeroFade 0.9s ease both;
+}
+
+/* Red Accent Line */
+
+.services-hero__accent {
+  display: block;
+  width: 52px;
+  height: 4px;
+  margin-bottom: 22px;
+  border-radius: 4px;
+  background-color: var(--red);
+}
+
+/* Main Heading */
+
+.services-hero__content h1 {
+  margin: 0 0 14px;
+  color: var(--white);
+  font-size: clamp(38px, 5.5vw, 68px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.8px;
+}
+
+/* Description */
+
+.services-hero__content p {
+  max-width: 620px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.8;
+}
+
+/* Entrance Animation */
+
+@keyframes servicesHeroFade {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   TABLET RESPONSIVE
+======================================== */
+
+@media (max-width: 768px) {
+  .services-hero {
+    min-height: 50vh;
+    padding: 48px 24px;
+    background-position: center;
+  }
+
+  .services-hero__overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(8, 24, 52, 0.9) 0%,
+      rgba(18, 40, 80, 0.68) 100%
+    );
+  }
+}
+
+/* ========================================
+   MOBILE RESPONSIVE
+======================================== */
+
+@media (max-width: 480px) {
+  .services-hero {
+    min-height: 45vh;
+    padding: 38px 20px;
+    background-position: center;
+  }
+
+  .services-hero__accent {
+    margin-bottom: 18px;
+  }
+
+  .services-hero__content h1 {
+    letter-spacing: -1px;
+  }
+
+  .services-hero__content p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .services-hero__content {
+    animation: none;
+  }
+}
+
+
+/* Company Partners Marquee */
+
+.partners-marquee {
+  --navy: #122850;
+  --red: #e03038;
+
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(18, 40, 80, 0.12);
+  padding: 22px 0;
+}
+
+.partners-track {
+  display: flex;
+  width: max-content;
+  animation: partners-scroll 55s linear infinite;
+  will-change: transform;
+}
+
+.partners-list {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 48px;
+  padding-right: 48px;
+}
+
+.partners-list span {
+  position: relative;
+  flex-shrink: 0;
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.partners-list span:hover {
+  color: var(--red);
+}
+
+.partners-list span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -26px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+  transform: translateY(-50%);
+}
+
+/* Continuous right-to-left scrolling */
+
+@keyframes partners-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause when hovered */
+
+.partners-marquee:hover .partners-track {
+  animation-play-state: paused;
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+  .partners-marquee {
+    padding: 18px 0;
+  }
+
+  .partners-list {
+    gap: 34px;
+    padding-right: 34px;
+  }
+
+  .partners-list span {
+    font-size: 13px;
+  }
+
+  .partners-list span::after {
+    right: -19px;
+    width: 4px;
+    height: 4px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .partners-marquee {
+    padding: 16px 0;
+  }
+
+  .partners-list {
+    gap: 28px;
+    padding-right: 28px;
+  }
+
+  .partners-list span {
+    font-size: 12px;
+  }
+
+  .partners-list span::after {
+    right: -16px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .partners-track {
+    animation: none;
+  }
+}
+
+
+
+/* ==========================================
+   AACPL SHARED SECTION STYLES
+========================================== */
+
+:root {
+  --navy: #122850;
+  --red: #e03038;
+  --white: #ffffff;
+  --light-bg: #f5f7fa;
+  --border: rgba(18, 40, 80, 0.12);
+  --text: #4c5668;
+  --transition: 0.35s ease;
+}
+
+.aacpl-testimonials,
+.aacpl-faq {
+  box-sizing: border-box;
+  padding: 90px 6%;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.aacpl-testimonials *,
+.aacpl-testimonials *::before,
+.aacpl-testimonials *::after,
+.aacpl-faq *,
+.aacpl-faq *::before,
+.aacpl-faq *::after {
+  box-sizing: border-box;
+}
+
+.section-heading {
+  max-width: 720px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  margin-bottom: 15px;
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+.section-heading h2 {
+  margin: 0 0 18px;
+  color: var(--navy);
+  font-size: clamp(32px, 4.2vw, 49px);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -1.5px;
+}
+
+.section-heading h2 span {
+  color: var(--red);
+}
+
+.section-heading > p {
+  max-width: 630px;
+  margin: 0 auto;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.testimonials-container,
+.faq-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   TESTIMONIALS
+========================================== */
+
+.aacpl-testimonials {
+  overflow: hidden;
+  background: var(--light-bg);
+}
+
+.testimonials-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Featured card */
+
+.testimonial-featured {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 390px;
+  padding: clamp(26px, 4vw, 45px);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--navy);
+  color: var(--white);
+  box-shadow: 0 18px 45px rgba(18, 40, 80, 0.12);
+}
+
+.testimonial-quote {
+  position: absolute;
+  top: 10px;
+  right: 26px;
+  color: rgba(255, 255, 255, 0.1);
+  font-family: Georgia, serif;
+  font-size: 140px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.testimonial-stars {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 25px;
+  color: #ffd166;
+  font-size: 18px;
+  letter-spacing: 4px;
+}
+
+.testimonial-featured blockquote {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  margin: 0 0 35px;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: clamp(17px, 2vw, 21px);
+  font-weight: 500;
+  line-height: 1.9;
+}
+
+.testimonial-author {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+
+.author-avatar {
+  display: grid;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(18, 40, 80, 0.12);
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.testimonial-author h3 {
+  margin: 0 0 5px;
+  color: inherit;
+  font-size: 13px;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.testimonial-author p {
+  margin: 0;
+  color: inherit;
+  font-size: 11px;
+  line-height: 1.6;
+  opacity: 0.7;
+}
+
+.featured-accent {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  background: var(--red);
+}
+
+/* Supporting cards */
+
+.testimonial-secondary {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.testimonial-card {
+  padding: 25px 27px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--white);
+  box-shadow: 0 8px 28px rgba(18, 40, 80, 0.045);
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(224, 48, 56, 0.4);
+  box-shadow: 0 14px 34px rgba(18, 40, 80, 0.09);
+}
+
+.testimonial-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.testimonial-mark {
+  color: var(--red);
+  font-family: Georgia, serif;
+  font-size: 45px;
+  line-height: 0.9;
+}
+
+.testimonial-label {
+  color: var(--red);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.testimonial-card blockquote {
+  margin: 0 0 22px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.testimonial-card .testimonial-author {
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.testimonial-card .author-avatar {
+  flex-basis: 38px;
+  width: 38px;
+  height: 38px;
+  font-size: 13px;
+}
+
+.author-avatar-red {
+  background: rgba(224, 48, 56, 0.09);
+  color: var(--red);
+}
+
+.author-avatar-navy {
+  background: rgba(18, 40, 80, 0.08);
+  color: var(--navy);
+}
+
+.testimonial-card .testimonial-author h3 {
+  color: var(--navy);
+}
+
+.testimonial-card .testimonial-author p {
+  color: var(--text);
+  opacity: 1;
+}
+
+.testimonial-disclaimer {
+  margin: 22px 0 0;
+  color: #70798a;
+  font-size: 11px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* ==========================================
+   FAQ
+========================================== */
+
+.aacpl-faq {
+  background: var(--white);
+}
+
+.faq-heading {
+  max-width: 780px;
+  margin-bottom: 55px;
+}
+
+.faq-layout {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.72fr) minmax(0, 1.5fr);
+  align-items: start;
+  gap: 32px;
+}
+
+/* FAQ introduction panel */
+
+.faq-intro {
+  position: sticky;
+  top: 100px;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--light-bg);
+}
+
+.faq-intro-icon {
+  display: grid;
+  width: 55px;
+  height: 55px;
+  margin-bottom: 24px;
+  place-items: center;
+  border-radius: 15px;
+  background: rgba(224, 48, 56, 0.1);
+  color: var(--red);
+}
+
+.faq-intro-icon svg {
+  width: 29px;
+  height: 29px;
+}
+
+.faq-intro h3 {
+  margin: 0 0 13px;
+  color: var(--navy);
+  font-size: 24px;
+  line-height: 1.35;
+}
+
+.faq-intro p {
+  margin: 0 0 25px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.faq-contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
+  min-height: 49px;
+  padding: 13px 17px;
+  border: 1px solid var(--red);
+  border-radius: 9px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.faq-contact-button:hover {
+  transform: translateY(-2px);
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.faq-contact-button span {
+  font-size: 17px;
+}
+
+/* Accordion */
+
+.faq-list {
+  min-width: 0;
+}
+
+.faq-item {
+  margin-bottom: 13px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--white);
+  transition: border-color var(--transition);
+}
+
+.faq-item.is-open {
+  border-color: rgba(224, 48, 56, 0.45);
+  box-shadow: 0 8px 24px rgba(18, 40, 80, 0.045);
+}
+
+.faq-item h3 {
+  margin: 0;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  min-height: 72px;
+  padding: 20px 23px;
+  border: 0;
+  background: transparent;
+  color: var(--navy);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.6;
+}
+
+.faq-question:focus-visible,
+.faq-contact-button:focus-visible {
+  outline: 3px solid rgba(224, 48, 56, 0.35);
+  outline-offset: 4px;
+}
+
+.faq-toggle {
+  position: relative;
+  display: block;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--light-bg);
+}
+
+.faq-toggle::before,
+.faq-toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--navy);
+  transform: translate(-50%, -50%);
+  transition: transform var(--transition);
+}
+
+.faq-toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-item.is-open .faq-toggle {
+  border-color: var(--red);
+  background: var(--red);
+}
+
+.faq-item.is-open .faq-toggle::before,
+.faq-item.is-open .faq-toggle::after {
+  background: var(--white);
+}
+
+.faq-item.is-open .faq-toggle::after {
+  transform: translate(-50%, -50%) rotate(0);
+}
+
+/* The hidden attribute must always be respected. */
+
+.faq-answer[hidden] {
+  display: none !important;
+}
+
+.faq-answer-inner {
+  padding: 0 23px 23px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+  .aacpl-testimonials,
+  .aacpl-faq {
+    padding: 72px 5%;
+  }
+
+  .testimonials-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-featured {
+    min-height: 320px;
+  }
+
+  .testimonial-secondary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+  }
+
+  .faq-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-intro {
+    position: static;
+    padding: 27px;
+  }
+
+  .faq-contact-button {
+    width: auto;
+    min-width: 210px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+  .aacpl-testimonials,
+  .aacpl-faq {
+    padding: 58px 18px;
+  }
+
+  .section-heading {
+    margin-bottom: 32px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(30px, 8vw, 39px);
+    letter-spacing: -1px;
+  }
+
+  .section-heading > p {
+    font-size: 13px;
+    line-height: 1.85;
+  }
+
+  .testimonials-layout {
+    gap: 15px;
+  }
+
+  .testimonial-featured {
+    min-height: 350px;
+    padding: 26px 22px;
+    border-radius: 17px;
+  }
+
+  .testimonial-featured blockquote {
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .testimonial-secondary {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .testimonial-card {
+    padding: 23px 21px;
+  }
+
+  .testimonial-disclaimer {
+    font-size: 10px;
+  }
+
+  .faq-heading {
+    margin-bottom: 32px;
+  }
+
+  .faq-intro {
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .faq-intro h3 {
+    font-size: 22px;
+  }
+
+  .faq-contact-button {
+    width: 100%;
+  }
+
+  .faq-question {
+    min-height: 68px;
+    padding: 17px 16px;
+    font-size: 13px;
+  }
+
+  .faq-toggle {
+    flex-basis: 25px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .faq-answer-inner {
+    padding: 0 16px 19px;
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .aacpl-testimonials *,
+  .aacpl-testimonials *::before,
+  .aacpl-testimonials *::after,
+  .aacpl-faq *,
+  .aacpl-faq *::before,
+  .aacpl-faq *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
